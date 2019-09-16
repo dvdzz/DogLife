@@ -64,6 +64,15 @@ gem 'bundler','>=1.8.4'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'popper_js', '~> 1.14', '>= 1.14.5'
 gem 'bootstrap', '~> 4.3.1'
+gem 'will_paginate', '~> 3.1', '>= 3.1.7'
+gem 'font-awesome-rails'
+gem 'simple_form'
+gem 'devise'
+gem 'figaro'
+gem 'mini_magick'
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
+gem 'carrierwave-aws'
 
 
 
