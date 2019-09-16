@@ -1,1 +1,8 @@
-<h1>DogLife - Where Dogs Live Their Best Life</h1>
+<% @dogs.each do |dog| %>
+  <div>
+    <h1><%= dog.name %></h1><br />
+    <i><%= dog.caption %></i><br />
+  </div>
+
+  <hr />
+<% end %>
