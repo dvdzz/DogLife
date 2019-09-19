@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,7 +24,6 @@
           </li>
         </ul>
         </div>
-      </nav>
 
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
         <li class="nav-item">
@@ -33,7 +33,14 @@
           <% end %>
          </li>
        </ul>
+     </nav>
 
+     <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+     <% end %>
+     <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+     <% end %>
 
     <%= yield %>
   </body>
