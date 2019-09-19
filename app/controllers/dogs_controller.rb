@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+    before_action :authenticate_user!, only: [:new, :create]
+
+
     def index
         @dogs = Dog.order(:id).paginate(:page => params[:page], :per_page => 5) 
     end
@@ -8,7 +11,7 @@ class DogsController < ApplicationController
     end
 
     def create
-        Dog.create(dog_params)
+        current_user.dogs.create(dog_params)
         redirect_to root_path
       end
     
