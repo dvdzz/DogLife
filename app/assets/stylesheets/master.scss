@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import "bootstrap";
+@import "font-awesome";
+
+
 .booyah-box {
     -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
     -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -30,11 +33,15 @@ body {
     background: image_url('tweed');
 }
 
-.navbar-inverse .navbar-brand {
+.navbar-brand {
     color: #E14A16;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     letter-spacing: -0.3px;
+}
+
+.navbar-toggler-icon {
+    color: #E14A16;
 }
 
 .pagination {
