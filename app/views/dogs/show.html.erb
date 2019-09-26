@@ -1,4 +1,8 @@
 <div class="booyah-box col-10 offset-1">
-<h1><%= @dog.name %></h1>
-<p><%= @dog.caption %></p>
+  <h1><%= @dog.name %></h1>
+  <br/>
+  <p><%= @dog.caption %></p>
+  <div class="float-left">
+    <%= link_to 'Edit', edit_dog_path(@dog), class: 'btn btn-primary' %>
+  </div>
 </div>
