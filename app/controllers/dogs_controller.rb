@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
 
     def index
@@ -21,10 +21,17 @@ class DogsController < ApplicationController
 
       def edit
         @dog = Dog.find(params[:id])
+
+        if @dog.user != current_user
+          return render plain: 'Not Allowed', status: :forbidden
+        end
       end
 
       def update
         @dog = Dog.find(params[:id])
+        if @dog.user != current_user
+          return render plain: 'Not Allowed', status: :forbidden
+        end
         @dog.update_attributes(dog_params)
         redirect_to root_path
       end
