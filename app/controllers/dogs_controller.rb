@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 
     def index
@@ -38,6 +38,10 @@ class DogsController < ApplicationController
 
       def destroy
         @dog = Dog.find(params[:id])
+        if @dog.user != current_user
+          return render plain: 'Not Allowed', status: :forbidden
+        end
+
         @dog.destroy 
         redirect_to root_path
       end
