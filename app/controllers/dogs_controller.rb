@@ -14,6 +14,10 @@ class DogsController < ApplicationController
         current_user.dogs.create(dog_params)
         redirect_to root_path
       end
+
+      def show
+        @dog = Dog.find(params[:id])
+      end
     
       private
     

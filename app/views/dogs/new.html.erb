@@ -7,5 +7,8 @@
     <%= f.input :caption %>
     <br />
     <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <div class="float-right">
+    <%= link_to 'Edit', edit_dog_path(@dog), class: 'btn btn-primary' %>
+  </div>
   <% end %>
 </div>

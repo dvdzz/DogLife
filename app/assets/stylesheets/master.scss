@@ -45,7 +45,7 @@ body {
 }
 
 .pagination {
-    background: white;
+    background: none;
     cursor: default;
     height: 22px;
     a,
@@ -55,15 +55,15 @@ body {
         display: block;
         float: left;
         margin-right: 1px;
+        text-align: center;
     }
     .disabled {
         display: none;
     }
     .current {
-        font-style: normal;
-        font-weight: bold;
-        background: #2e6ab1;
-        color: white;
+        font-family: 'Roboto', sans-serif;
+        background: none;
+        color: black;
         border: 1px solid #2e6ab1;
     }
     a {
