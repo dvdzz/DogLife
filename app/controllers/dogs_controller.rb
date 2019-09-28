@@ -11,9 +11,13 @@ class DogsController < ApplicationController
     end
 
     def create
-        current_user.dogs.create(dog_params)
-        redirect_to root_path
-      end
+      @dog = current_user.dogs.create(dog_params)
+        if @dog.valid?
+          redirect_to root_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+     end
 
       def show
         @dog = Dog.find(params[:id])
@@ -29,11 +33,16 @@ class DogsController < ApplicationController
 
       def update
         @dog = Dog.find(params[:id])
+
         if @dog.user != current_user
           return render plain: 'Not Allowed', status: :forbidden
         end
         @dog.update_attributes(dog_params)
-        redirect_to root_path
+        if @dog.valid?
+          redirect_to root_path
+        else
+          render :edit, status: :unprocessable_entity
+        end
       end
 
       def destroy
