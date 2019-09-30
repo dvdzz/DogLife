@@ -3,7 +3,7 @@ class DogsController < ApplicationController
 
 
     def index
-        @dogs = Dog.order(:id).paginate(:page => params[:page], :per_page => 5) 
+        @dogs = Dog.order(:id).paginate(:page => params[:page], :per_page => 3) 
     end
 
     def new

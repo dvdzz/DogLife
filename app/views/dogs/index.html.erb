@@ -1,16 +1,26 @@
+  
 <% @dogs.each do |dog| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to dog.name, dog_path(dog) %></h1><br />
-    <i><%= dog.caption %></i><br /><br />
+    <p><%= dog.caption %></p><br /><br />
 
     <% if dog.user.present? %>
       <small><%= dog.user.email %></small>
     <% end %>
-
-  </div>
+  <% if dog.comments.present? %>
+    <div class="col-12 col-sm-6">
+      <blockquote>
+        <% if dog.comments.last.humanized_rating.present? %>
+          <b><%= dog.comments.last.humanized_rating %></b> -
+        <% end %>
+        <%= dog.comments.last.message %>
+        <small><%= dog.comments.last.user.email %></small>
+      </blockquote>
+    </div>
+  <% end %>
 <% end %>
 
 
-
-
 <%= will_paginate @page, previous_label: h("<"), next_label: h(">") %>
+
+
